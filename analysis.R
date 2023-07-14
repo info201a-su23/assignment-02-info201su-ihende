@@ -5,7 +5,7 @@
 #    dhendry@uw.edu
 
 # Practice set info ---- 
-practice.begin("A2", learner="[your name]", email="[your e-mail]")
+practice.begin("A2", learner="Isabelle Henderson", email="ihende@uw.edu")
 
 # Your 44 prompts ----
 
