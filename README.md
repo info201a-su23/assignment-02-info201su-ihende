@@ -85,13 +85,26 @@ In the second chapter of *Data Feminism*, Klein and D'Ignazio describe 4 ways th
 
 ### Critical Analysis & Reflection: Before You Code (questions above)
 
-* **(R1a)** ... (about 25-50 words)
-* **(R1b)** ... (about 25-50 words)
-* **(R1c)** ... (about 25-50 words)
-* **(R1d)** ... (about 25-50 words)
-* **(R1e)** ... (about 25-50 words)
-* **(R1f)** ... (about 25-50 words)
-* **(R1g)** ... (bullet points fine; about 50 words)
+* **(R1a)** 
+**The creators started collecting CountLove data in order to improve coverage on data about protests. In the United States, there is a lack of media coverage about regional protests and aggregate protest data is not readily available. This data helps document and understand trends in protests related to important societal issues.**
+
+* **(R1b)** 
+**The main idea in this article is how the Black Lives Matter protests of summer 2020 reached almost every setting and demographic in the United States. The author uses the CountLove data to demonstrate the reach of this movement and the varying locations and sizes of the protests.**
+
+* **(R1c)** 
+**This data was collected and shared by Tommy Leung and Nathan Perkins. They are engineers and scientists with interests in civic responsibility and public policy.**
+
+* **(R1d)** 
+**CountLove includes information like the locations of protests and the quantity of protests at each one. It does not include information about the sizes of some of the individual protests, or any injuries, arrests, etc.**
+
+* **(R1e)** 
+**They get their data from local newspaper and television sites. They use software and various models to aggregate this data as well.**
+
+* **(R1f)**
+ **They record the most conservative attendance number from the news articles that they link. For example, they interpret a "dozen" as 10. This may cause some problems to arise with underestimating attendance and your data will not be as truly reflective of the actual number of attendees. This may be an issue when trying to predict possible trends in the protests.**
+
+* **(R1g)** **2 Central values of CountLove**
+
 * **(R1h)** ... (bullet points fine; about 50 words)
 
 ### Part 3: Locations (`analysis.R`)
