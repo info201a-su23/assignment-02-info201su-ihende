@@ -105,7 +105,10 @@ They get their data from local newspaper and television sites. They use software
 
 * **(R1g)** 2 Central values of CountLove
 
-* **(R1h)** ... (bullet points fine; about 50 words)
+* **(R1h)** 
+
+- Direct stakeholder:
+- Indirect stakeholder:
 
 ### Part 3: Locations (`analysis.R`)
 * **(R3a)** ... (about 25-50 words)
