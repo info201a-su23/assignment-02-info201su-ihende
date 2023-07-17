@@ -112,9 +112,14 @@ They get their data from local newspaper and television sites. They use software
 - Indirect stakeholder: people who aren't participating in the protests or involved in them, but are still affected. This could include people who live in heavily protested areas and their neiighborhoods are affected by the traffic or any possible police activity. Another example could be the government, because the protests put a lot of pressure on government policies.
 
 ### Part 3: Locations (`analysis.R`)
-* **(R3a)** ... (about 25-50 words)
-* **(R3b)** ... (about 25-50 words)
-* **(R3c)** ... (about 25-50 words)
+* **(R3a)** 
+I'm honestly not too surprised by the number of protests in Washington. Proportionally to the rest of the country the number makes sense. Washington is also a liberal state that often advocates for policy change, so I'm not surprised at the relatively high number of protests.
+
+* **(R3b)**
+Yes, being able to sort through the whole dataset with just one function was really surprising. It makes me wonder what other functions we will end up using to be able to interpret and analyze data.
+
+* **(R3c)** 
+One data quality issue I noticed with this table was that the states were case-sensitive. So, a state being recorded as "WA" and "wa" would be in different categories. I would change my analysis of this data by considering that some states may have multiple groupings, and then group those together.
 
 ### Critical Analysis & Reflection: After You Code (questions above)
 * **(R7h)** ... (100 words or more)

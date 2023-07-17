@@ -181,24 +181,30 @@ View(protests)
 #    number of attendees using the `boxplot()` function. Store the plot in a
 #    variable called `attendees_distribution`. (Note: Later in the course, we
 #    will use more refined plotting methods.) (Variable: `attendees_distribution`)
+  attendees_distribution <- boxplot(num_attendees)
 
 # 2h: Create another boxplot of the *log* of the number of attendees.
 #    Store the plot in a variable `log_attendees_distribution`. (Note: You will
 #    likely see see a warning in the console, which is expected.) (Variable: `log_attendess_distribution`)
-
+  log_attendees_distribution <- boxplot(log(num_attendees))
+  
 #                                         Note 08.
 ## Part 3: Locations -----
 # In this part, you will explore where the protests happened.
 
 # 3a: Extract the `Location` column. (Variable: `locations`)
+  locations <- protests$Location
 
 # 3b: How many *unique* locations are in the dataset? (Variable: `num_locations`)
+  num_locations <-length(unique(locations))
 
 # 3c: How many protests occurred in Washington State (WA)? (Hint: Use a function, 
 #    called str_detect(), from the stringr package (see https://stringr.tidyverse.org/), 
 #    to detect the presence (or absence) of WA".) (Variable: `num_in_wa`)
+  num_in_wa <- sum(str_detect(locations, "WA"))
 
 # 3d: What proportion of protests occurred in Washington? (Variable: `prop_in_wa`)
+  prop_in_wa <- sum(num_in_wa, na.rm = TRUE) / num_protests
 
 #                                         Note 09.
 #     *R3a: REFLECTION:* Does the number of protests in Washington surprise you?
@@ -206,6 +212,13 @@ View(protests)
 
 # 3e: Write a function `count_in_location()` that accepts one parameter:
 #        `location` - which is the possible location of a protest
+  count_in_location <- function(location) {
+    num <- sum(str_detect(locations, location))
+    if (num == 0){
+      return(paste0("Location ", location, " not found."))
+    }
+      return(paste0("There were ", num, " protests in ", location,"."))
+      }
 #        
 #    The function should return exactly this sentence:
 #       "There were N protests in LOCATION."
@@ -223,23 +236,29 @@ View(protests)
 #          parameter. For example, `Seattle` should be a match for "Seattle, WA". (Variable: `count_in_location`)
 
 # 3f: Use your function above to compute the number of protests in "Washington, DC". (Variable: `dc_summary`)
-
+  dc_summary <- count_in_location("Washington, DC")
+  
 # 3g: Use your function above to compute the number of protests in "Minneapolis". (Variable: `minneapolis_summary`)
-
+  minneapolis_summary <- count_in_location("Minneapolis")
+  
 # 3h: Use your function above to demonstrate that it works correctly for a
 #    location that is not in the data set. (Variable: `missing_summary`)
+  missing_summary <- count_in_location("RStudio")
 
 # 3i: Create a new vector `states` that holds the state locations, that is, the
 #    last two characters of each value in the `locations` vector. (Hint: You may
 #    want to again use a function from the `stringr` package 
 #    Check, for example, the `str_sub()` function.) (Variable: `states`)
+  states <- c(str_sub(locations, -2, -1))
 
 # 3j: Create a vector of the unique states in your dataset. (Variable: `uniq_states`)
+  uniq_states <- unique(states)
 
 # 3k: Create a summary sentence for each state by passing your `uniq_states`
 #    variable and `count_in_location` variables to the `sapply()` function.
 #    (Hint: Study section 8.3 in the textbook. It is important to understand
 #    the `sapply()` and `lapply()` functions.) (Variable: `state_summary`)
+  state_summary <- sapply(uniq_states, count_in_location)
 
 #                                         Note 10.
 #     *R3b: REFLECTION:* You have applied your function to an entire vector 
@@ -247,9 +266,12 @@ View(protests)
 
 # 3l: Create a summary table by passing your `states` variable to the
 #    `table()` function and by storing the result in the variable `state_table`.
+  state_table <- table(states)
+
 #   
 #    *SUGGESTION:* Use the View() function to more easily examine the table. (Variable: `state_table`)
-
+  View(state_table)
+  
 #                                         Note 11.
 #     *R3c: REFLECTION:* Looking at the `state_table` variable, what data quality
 #     issues do you notice? How would you change your analysis? (Note: There is no
@@ -257,7 +279,8 @@ View(protests)
 
 # 3m: What was the maximum number of protests in a state? (Hint: Use the
 #    `state_table` variable.) (Variable: `max_in_state`)
-
+  max_in_state <- max(state_table)
+  
 #                                         Note 12.
 ## Part 4: Dates ----
 # In this part, you will exploring *when* protests happened.
