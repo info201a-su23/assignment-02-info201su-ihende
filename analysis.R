@@ -139,11 +139,11 @@ View(protests)
 #        3. What are the column names (sometimes called variables or features)?
 
 # 1c: Use an R function to determine how many protests are in the dataset? (Variable: `num_protests`)
-num_protests <- nrow(protests)
+  num_protests <- nrow(protests)
 
 # 1d: Use an R function to determine how many how many values (also known as
-#    attributes or features) have been recorded for each protest (Variable: `num_features`)
-num_features <- ncol(protests)
+# attributes or features) have been recorded for each protest (Variable: `num_features`)
+  num_features <- ncol(protests)
   
 #                                         Note 05.
 ## Part 2: Attendees ----
@@ -151,21 +151,27 @@ num_features <- ncol(protests)
 # in the protests.
 
 # 2a: Extract the `Attendees` column into a variable called `num_attendees`. (Variable: `num_attendees`)
+  num_attendees <- protests$Attendees
 
 #                                         Note 06.
 #     For the following prompts, you will need to consider missing values. In R,
 #     missing values are denoted by the symbol NA, which means "Not Available."
 
 # 2b: What is the lowest number of attendees? (Variable: `min_attendees`)
+  min_attendees <- min(num_attendees, na.rm = TRUE)
 
 # 2c: What is the highest number of attendees? (Variable: `max_attendees`)
+  max_attendees <- max(num_attendees, na.rm = TRUE)
 
 # 2d: What is the mean number of attendees? (Variable: `mean_attendees`)
+  mean_attendees <- mean(num_attendees, na.rm = TRUE)
 
 # 2e: What is the median number of attendees? (Variable: `median_attendees`)
+  median_attendees <- median(num_attendees, na.rm = TRUE)
 
 # 2f: What is the difference between the mean and median number of attendees? (Variable: `mean_median_diff`)
-
+  mean_median_diff <- mean_attendees - median_attendees
+  
 #                                         Note 07.
 #     *Consideration* What does the difference between the mean and the median
 #     tell you about the *distribution* of the data? (Note: If you're unfamiliar with
