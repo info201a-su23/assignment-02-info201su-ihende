@@ -103,12 +103,13 @@ They get their data from local newspaper and television sites. They use software
 * **(R1f)**
  They record the most conservative attendance number from the news articles that they link. For example, they interpret a "dozen" as 10. This may cause some problems to arise with underestimating attendance and your data will not be as truly reflective of the actual number of attendees. This may be an issue when trying to predict possible trends in the protests.
 
-* **(R1g)** 2 Central values of CountLove
+* **(R1g)** There are 2 related central values of CountLove which are...
+- Increasing access to valuable information that may not have consistent or widespread coverage
+- Creating a more diverse, empathetic and kind world due to more coverage on protests, and exposing more people to inpsiring movements that will better our society
 
 * **(R1h)** 
-
-- Direct stakeholder:
-- Indirect stakeholder:
+- Direct stakeholder: people who organize or participate in protests because this information directly reports on and affects the protests they participate in. They can gather more information on the protests with this data as well.
+- Indirect stakeholder: people who aren't participating in the protests or involved in them, but are still affected. This could include people who live in heavily protested areas and their neiighborhoods are affected by the traffic or any possible police activity. Another example could be the government, because the protests put a lot of pressure on government policies.
 
 ### Part 3: Locations (`analysis.R`)
 * **(R3a)** ... (about 25-50 words)
