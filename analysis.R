@@ -125,8 +125,12 @@ practice.begin("A2", learner="Isabelle Henderson", email="ihende@uw.edu")
 
 #                                         Note 03.
 # 1a: Load the `stringr` package, which you will use later.
+install.packages("stringr")
+library("stringr")
 
 # 1b: Load the data from https://countlove.org/data/data.csv (Variable: `protests`)
+protests <- read.csv("https://countlove.org/data/data.csv")
+View(protests)
 
 #                                         Note 04.
 #     *BEST PRACTICE:* Use View() to open and examine the dataset. Some key questions to ask:  
@@ -135,10 +139,12 @@ practice.begin("A2", learner="Isabelle Henderson", email="ihende@uw.edu")
 #        3. What are the column names (sometimes called variables or features)?
 
 # 1c: Use an R function to determine how many protests are in the dataset? (Variable: `num_protests`)
+num_protests <- nrow(protests)
 
 # 1d: Use an R function to determine how many how many values (also known as
 #    attributes or features) have been recorded for each protest (Variable: `num_features`)
-
+num_features <- ncol(protests)
+  
 #                                         Note 05.
 ## Part 2: Attendees ----
 # In this part, you will explore the number of people who participated
@@ -479,3 +485,4 @@ write_report <- function(md_doc, fname="~/Documents/info201/reports/report.md") 
 #    For example, do your functions have limitations? Or, do they 
 #    work perfectly? If so, how do you know> Do think these two 
 #    functions are useful? What might you do next if you had more time?
+
