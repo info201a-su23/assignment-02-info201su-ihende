@@ -289,19 +289,26 @@ View(protests)
 #    column to the `as.Date()` function. (Note: The `as.Date()` function will
 #    process the values as dates, which are *fortunately* already in an optimal
 #    format for parsing.) (Variable: `dates`)
+  dates <- as.Date(protests$Date)
 
 # 4b: What is the most recent date in the dataset? (Variable: `most_recent`)
+  most_recent <- max(dates)
 
 # 4c: What is the earliest date in the dataset? (Variable: `earliest`)
+  earliest <- min(dates)
 
 # 4d: What is the length of the time span of the dataset? (Hint: R can do math with
 #    dates pretty well by default!) (Variable: `time_span`)
+  time_span <- most_recent - earliest
 
 # 4e: Create a vector of the dates that are in 2020. (Variable: `in_2020`)
+  in_2020 <- dates[dates >= "2020-01-01" & dates <= "2020-12-31"]
 
 # 4f: Create a vector of the dates that are in 2019. (Variable: `in_2019`)
+  in_2019 <- dates[dates >= "2019-01-01" & dates <= "2019-12-31"]
 
 # 4g: What is the ratio of the number of protests in 2020 compared to 2019? (Variable: `ratio_2020_2019`)
+  ratio_2020_2019 <- length(in_2020)/length(in_2019)
 
 #                                         Note 13.
 #     *CONSIDER:* Does the change in the number of protests from 2019 to 2020
@@ -312,21 +319,34 @@ View(protests)
 #       "There were N protests on DATE." - where
 #           N is the number of protests on that date; and
 #           DATE is the date provided. (Variable: `count_on_date`)
+  count_on_date <- function(date){
+    count <- sum(str_detect(dates, date))
+    return(paste0("There were ", count, " on ", date, "."))
+  }
 
 # 4i: Using your function you just wrote, how many protests were there on
 #    May 24th, 2020? (Variable: `num_on_may_24`)
+  num_on_may_24 <- count_on_date("2020-05-24")
 
 # 4j: Using your function you just wrote, how many protests were there on
 #    May 31th, 2020? (Variable: `num_on_may_31`)
-
+  num_on_may_31 <- count_on_date("2020-05-31")
+  
 # 4k: How many protests occurred each month in 2020? (Hint: Use the `months()`
 #    function, your `in_2020` dates, and the `table()` function. If you like, you
 #    can do this in multiple steps.) (Variable: `by_month_table`)
+  by_month_table <- months(in_2020)
+  table(by_month_table)
 
 # 4l: As a comparison, let's assess the change between July 2019 and July 2020.
 #    What is the *difference* in the number of protests between July 2020 and
 #    July 2019? You'll want to do this in multiple steps as you see fit, though
 #    your answer should be stored in the variable. (Variable: `change_july_protests`)
+  july_2020 <- str_detect(dates, "2020-07")
+  sum(july_2020)
+  july_2019 <- str_detect(dates, "2019-07")
+  sum(july_2019)
+  change_july_protests <- sum(july_2020 - july_2019)
 
 #                                         Note 14.
 ## Part 5: Protest Purpose ----
