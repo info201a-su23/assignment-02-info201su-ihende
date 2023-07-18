@@ -216,9 +216,9 @@ View(protests)
     num <- sum(str_detect(locations, location))
     if (num == 0){
       return(paste0("Location ", location, " not found."))
-    }
-      return(paste0("There were ", num, " protests in ", location,"."))
       }
+      return(paste0("There were ", num, " protests in ", location,"."))
+    }
 #        
 #    The function should return exactly this sentence:
 #       "There were N protests in LOCATION."
@@ -354,11 +354,15 @@ View(protests)
 # our goal is to understand the purposes of the protests.
 
 # 5a: Extract the `Event..legacy..see.tags.` column into a variable called `purpose`.
+  purpose <- protests$Event..legacy..see.tags.
+  
 #    
 #    *CONSIDER:* The name of this column, "Event..legacy..see.tags.", is very odd. Why? 
 #    What can be learned from this column name? (Variable: `purpose`)
 
 # 5b: How many different purposes are listed in the dataset? (Variable: `num_purposes`)
+  unique_purposes <- unique(protests$Event..legacy..see.tags.)
+  num_purposes <- length(unique_purposes)
 
 # 5c: That's quite a few! Why are there so many purposes? Type `print(purpose)` to
 #    examine the values in the vector. You will notice a common pattern. Here, for
@@ -402,16 +406,24 @@ View(protests)
 #    To solve this problem, you might do a web search and/or find an introduction
 #    to regular expressions and R. Take your time. You will likely need to do some
 #    thoughtful trial and error. (Variable: `get_purposes`)
-
+  print(purpose)
+  get_purposes <- function(){
+    str_replace(purpose, "\\s*\\([^\\)]+\\)", "")
+  }
+  get_purposes()
 # 5d: Show that your function, `get_purposes()` works. (Variable: `high_level_purpose`)
+  high_level_purpose <- get_purposes()
 
 # 5e: How many "high level" purposes have you identified? (Variable: `num_high_level`)
+  num_high_level <- unique(high_level_purpose)
 
 # 5f: Use the table() function to count the number of protests for each high level purpose. (Variable: `high_level_table`)
+  high_level_table <- table(high_level_purpose)
 
 #                                         Note 15.
 #     *CONSIDER:* Use View() to examine your `high_level_table` variable. What
 #     picture does this paint of the U.S.?
+  View(high_level_table)
 
 #                                         Note 16.
 ## Part 6: Developing data systems ----
@@ -524,9 +536,24 @@ write_report <- function(md_doc, fname="~/Documents/info201/reports/report.md") 
 
 # 6a: Write the filter_positions() function, as described above. Please comment 
 #    your function. (Variable: `filter_protests`)
+  filter_positions <- function(purpose, position_taken=NULL){
+    purpose <- protests$Event..legacy..see.tags.
+    position_taken <- protests$Tags
+    df_purposes <- data.frame(purpose, position_taken)
+    if(!is.null(position_taken)){
+      return(df_purposes)
+    }
+    return(data.frame(protests))
+  }
 
 # 6b: Write the filter_and_report() function, as described above. Please comment 
 #    your function. (Variable: `filter_and_report`)
+  filter_and_report <- function(purpose, position_taken=NULL){
+    purpose <- protests$Event..legacy..see.tags.
+    position_taken <- protests$Tags
+    protest_df <- data.frame(filter_positions(purpose, position_taken))
+    format_doc(protest_df, purpose, position_taken=NULL)
+  }
 
 #                                         Note 18.
 # 6c: Demonstrate that your two functions, filter_protests() and 
@@ -534,4 +561,5 @@ write_report <- function(md_doc, fname="~/Documents/info201/reports/report.md") 
 #    For example, do your functions have limitations? Or, do they 
 #    work perfectly? If so, how do you know> Do think these two 
 #    functions are useful? What might you do next if you had more time?
-
+  filter_positions(purpose, position_taken)
+  filter_and_report(purpose, position_taken)
