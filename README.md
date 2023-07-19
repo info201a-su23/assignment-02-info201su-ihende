@@ -122,6 +122,9 @@ Yes, being able to sort through the whole dataset with just one function was rea
 One data quality issue I noticed with this table was that the states were case-sensitive. So, a state being recorded as "WA" and "wa" would be in different categories. I would change my analysis of this data by considering that some states may have multiple groupings, and then group those together.
 
 ### Critical Analysis & Reflection: After You Code (questions above)
-* **(R7h)** ... (100 words or more)
-* **(R7i)** ... (50 words or more)
-* **(R7j)** ... (50 words or more)
+* **(R7h)** 
+The main forms of challenging power that CountLove embodies are collecting and teaching. As said on the website, CountLove compiles data that may be "in the face of missing data or insititutional neglect". These protests may not often be reported on and cause their to be missing data. CountLove counters that neglect. Secondly, CountLove teaches. Through identifying themselves and their purpose on the FAQ page, CountLove empowers potential data scientists and those who care about social issues. This can help shift the power dyanmics surrounding data and affect change.
+* **(R7i)** 
+I think the most important thing I learned from this assignment was about the capabilities to sort through and extract information from large datasets. This interested me because of the insights I could gain through extracting certain aspects of data and I'm excited to keep learning what I can do with data and R!
+* **(R7j)** 
+I would like to go more into the locations aspect of the protest data. I think uncovering trends regarding concentrations of protests in one location over a period of time, or even connecting the protest purposes to certain locations. I think this can allow us to see what states implement government policies that tend to be protested more often.
